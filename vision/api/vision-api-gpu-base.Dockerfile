@@ -70,7 +70,7 @@ ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:$LD
 RUN pip install -q -r python-requirements.txt
 
 # Install tensorflow-gpu
-RUN pip install tensorflow-gpu==1.9.0
+RUN pip install -q tensorflow-gpu==1.9.0
 
 # Download OSS projects
 WORKDIR /install
