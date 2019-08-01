@@ -51,13 +51,13 @@ RUN apt-get -qq update && apt-get -qq install -y --no-install-recommends \
     libcudnn7-dev=$CUDNN_VERSION-1+cuda9.0 && \
     apt-mark hold libcudnn7
 
-# set non-interactive for linux packages installation
+# Set non-interactive for linux packages installation
 ENV DEBIAN_FRONTEND=noninteractive
 
 ADD . /install
 WORKDIR /install
 
-# install linux packages
+# Install linux packages
 RUN apt-get -qq update && xargs -a linux-packages.txt apt-get -qq install -y --no-install-recommends
 
 # Set python
@@ -68,6 +68,8 @@ ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:$LD
 
 # Install python packages
 RUN pip install -q -r python-requirements.txt
+
+# Install tensorflow-gpu
 RUN pip install tensorflow-gpu==1.9.0
 
 # Download OSS projects

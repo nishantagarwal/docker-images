@@ -4,6 +4,7 @@ services:
   - docker
 
 before_install:
+  - cd vision/api
   - docker build -t niacainfosys/vision-api-base-gpu:1.2.0 -f vision-api-base-gpu.Dockerfile .
 
 script:
