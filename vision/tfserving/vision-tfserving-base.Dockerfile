@@ -18,3 +18,4 @@ RUN pip install -q -r python-requirements.txt
 # Remove temp and cache folders
 RUN rm -rf /var/lib/apt/lists/* && rm -rf /var/cache/apt/* && rm -rf /root/.cache/* && rm -rf /install && apt-get clean
 WORKDIR /
+ENTRYPOINT []
