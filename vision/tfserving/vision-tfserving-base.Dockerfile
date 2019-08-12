@@ -6,8 +6,11 @@ ENV DEBIAN_FRONTEND=noninteractive
 ADD . /install
 WORKDIR /install
 
+# Update OS packages
+RUN apt-get clean && apt-get -qq update && apt-get -qq upgrade
+
 # Install linux packages
-RUN apt-get -qq update && xargs -a linux-packages.txt apt-get -qq install -y --no-install-recommends
+RUN xargs -a linux-packages.txt apt-get -qq install -y --no-install-recommends
 
 # Set python
 RUN cd /usr/local/bin && ln -s /usr/bin/python3 python && ln -s /usr/bin/pip3 pip
