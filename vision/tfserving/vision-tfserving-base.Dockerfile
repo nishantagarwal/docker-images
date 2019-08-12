@@ -9,7 +9,7 @@ WORKDIR /install
 # Install linux packages
 RUN apt-get -qq update && xargs -a linux-packages.txt apt-get -qq install -y --no-install-recommends
 
-# Update OS packages
+# Update linux packages
 RUN apt-get clean && apt-get -qq update && apt-get -qq upgrade
 
 # Set python

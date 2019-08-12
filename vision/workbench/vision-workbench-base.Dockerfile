@@ -6,8 +6,10 @@ ADD . /install
 WORKDIR /install
 
 # Install linux packages
-RUN apt-get -qq update \
-    && xargs -a linux-packages.txt apt-get -qq install -y --no-install-recommends
+RUN apt-get -qq update && xargs -a linux-packages.txt apt-get -qq install -y --no-install-recommends
+
+# Update linux packages
+RUN apt-get clean && apt-get -qq update && apt-get -qq upgrade
 
 # Set python
 RUN cd /usr/local/bin && ln -s /usr/bin/python3 python && ln -s /usr/bin/pip3 pip
