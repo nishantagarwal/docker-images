@@ -67,10 +67,10 @@ RUN cd /usr/local/bin && ln -s /usr/bin/python3 python && ln -s /usr/bin/pip3 pi
 ENV LD_LIBRARY_PATH /usr/local/cuda/extras/CUPTI/lib64:/usr/local/cuda/lib64:$LD_LIBRARY_PATH
 
 # Install python packages
-RUN pip install -q -r python-requirements.txt
+RUN pip install -q --no-cache-dir -r python-requirements.txt
 
 # Install tensorflow-gpu
-RUN pip install -q tensorflow-gpu==1.9.0
+RUN pip install -q --no-cache-dir tensorflow-gpu==1.9.0
 
 # Download OSS projects
 WORKDIR /install
