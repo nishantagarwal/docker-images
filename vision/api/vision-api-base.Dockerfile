@@ -16,7 +16,7 @@ RUN apt-get clean && apt-get -qq update && apt-get -qq upgrade
 RUN cd /usr/local/bin && ln -s /usr/bin/python3 python && ln -s /usr/bin/pip3 pip
 
 # Install python packages
-RUN pip install -q -r python-requirements.txt
+RUN pip install -q --no-cache-dir -r python-requirements.txt
 
 # Download OSS projects
 WORKDIR /install
