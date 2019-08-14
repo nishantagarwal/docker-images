@@ -6,7 +6,7 @@ ADD . /install
 WORKDIR /install
 
 # Install linux packages
-RUN apt-get update && xargs -a linux-packages.txt apt-get install -y --no-install-recommends
+RUN apt-get -q update && xargs -a linux-packages.txt apt-get install -q -y --no-install-recommends
 
 # Update linux packages
 RUN apt-get clean && apt-get -qq update && apt-get -qq upgrade
