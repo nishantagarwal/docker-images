@@ -4,6 +4,7 @@ gcc-6
 libreoffice
 libglib2.0
 liblept5
+libmagic-dev
 libpcre3
 libpcre3-dev
 libsm6
