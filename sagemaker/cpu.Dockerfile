@@ -1,8 +1,8 @@
 FROM 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu
 
-ENV DEBIAN_FRONTEND=noninteractive
 ARG PYTHON=python3
 ARG PIP=pip3
+ENV DEBIAN_FRONTEND=noninteractive
 
 RUN apt-get update && apt-get install -y --no-install-recommends \
         build-essential \
@@ -21,3 +21,6 @@ RUN ${PIP} install --no-cache-dir \
     && \
     ${PIP} install --no-dependencies --no-cache-dir \
     tensorflow-serving-api==1.14.0
+
+COPY list_packages.py /tests/
+RUN ${PYTHON} /test/list_packages.py

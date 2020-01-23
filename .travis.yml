@@ -15,13 +15,12 @@ install:
 
 before_script:
   - cd sagemaker
-  - ls
 
 script:
   - docker build -t $AWS_ECR_REPO_URI:1.0 -f cpu.Dockerfile .
 
 after_success:
-  - docker run $AWS_ECR_REPO_URI:1.0 /bin/bash -c "apt list --installed; python --version; pip list; python -c 'import cv2'; python -c 'import tensorflow as tf'"
+  - docker run $AWS_ECR_REPO_URI:1.0 python3 -c "import tensorflow as tf"
 
 after_script:
   - eval $(aws ecr get-login --region us-east-1)
