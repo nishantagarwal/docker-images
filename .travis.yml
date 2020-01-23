@@ -12,7 +12,7 @@ before_install:
 
 install:
   - docker pull 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu
-  - docker run 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu python3 -c "import tensorflow as tf; print(tf.__version__)"
+  #- docker run 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu python3 -c "import tensorflow as tf; print(tf.__version__)"
   - docker run 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu /bin/bash -c "cat /usr/bin/tf_serving_entrypoint.sh"
 
 before_script:
