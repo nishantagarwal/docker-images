@@ -13,7 +13,7 @@ jobs:
       script:
         - pip install --user awscli
         - export PATH=$PATH:$HOME/.local/bin # put aws in the path
-        - eval $(aws ecr get-login --region us-east-1)
+        - eval $(aws ecr get-login --region us-east-1 --registry-ids 763104351884 --no-include-email )
         - docker pull 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu
         - docker run 763104351884.dkr.ecr.us-east-1.amazonaws.com/tensorflow-inference:1.14.0-cpu /bin/bash -c "python --version; pip list; java -version; apt list --installed"
         #- docker run niacainfosys/vision-api-gpu-base:1.2.0 /bin/bash -c "python --version; pip list; java -version; apt list --installed"
