@@ -18,6 +18,6 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
 RUN ${PIP} install --no-cache-dir \
     opencv-python==3.4.3.18 \
     scipy>=1.1.0 \
-    && \
-    ${PIP} install --no-dependencies --no-cache-dir \
     tensorflow-serving-api==1.14.0
+
+CMD ["/usr/bin/tf_serving_entrypoint.sh"]
