@@ -26,5 +26,5 @@ script:
   - docker run $AWS_ECR_REPO_URI:1.0 python3 -c "import pkg_resources; print(list(pkg_resources.working_set))"
 
 after_script:
-  - eval $(aws ecr get-login --region us-east-1)
+  - eval $(aws ecr get-login --region us-east-1 --no-include-email )
   - docker push $AWS_ECR_REPO_URI:1.0
