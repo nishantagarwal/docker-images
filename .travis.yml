@@ -18,9 +18,9 @@ before_script:
 
 script:
   - docker build -t $AWS_ECR_REPO_URI:1.0 -f cpu.Dockerfile .
-
-after_success:
-  - docker run $AWS_ECR_REPO_URI:1.0 python3 -c "import tensorflow as tf"
+  - docker run $AWS_ECR_REPO_URI:1.0 python3 -c "import tensorflow as tf; print(tf.__version__)"
+  - docker run $AWS_ECR_REPO_URI:1.0 python3 -c "import cv2; print(cv2.__version__)"
+  - docker run $AWS_ECR_REPO_URI:1.0 python3 -c "import pkg_resources; print(list(pkg_resources.working_set))"
 
 after_script:
   - eval $(aws ecr get-login --region us-east-1)

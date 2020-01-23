@@ -21,6 +21,3 @@ RUN ${PIP} install --no-cache-dir \
     && \
     ${PIP} install --no-dependencies --no-cache-dir \
     tensorflow-serving-api==1.14.0
-
-COPY list_packages.py /tests/
-RUN ${PYTHON} /test/list_packages.py
